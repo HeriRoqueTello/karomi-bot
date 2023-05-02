@@ -1,0 +1,29 @@
+{
+  "name": "karomi-bot",
+  "version": "1.0.0",
+  "description": "Karina Discord Bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HeriRoqueTello/karomi-bot.git"
+  },
+  "keywords": [
+    "discord"
+  ],
+  "author": "Heri Roque Tello",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HeriRoqueTello/karomi-bot/issues"
+  },
+  "homepage": "https://github.com/HeriRoqueTello/karomi-bot#readme",
+  "dependencies": {
+    "discord.js": "^14.10.2",
+    "glob": "^10.2.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.39.0"
+  }
+}
