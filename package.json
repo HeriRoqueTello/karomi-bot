@@ -20,8 +20,9 @@
   },
   "homepage": "https://github.com/HeriRoqueTello/karomi-bot#readme",
   "dependencies": {
+    "ascii-table": "^0.0.9",
     "discord.js": "^14.10.2",
-    "glob": "^10.2.2"
+    "glob": "^8.0.3"
   },
   "devDependencies": {
     "eslint": "^8.39.0"
