@@ -32,7 +32,7 @@ module.exports = {
       .setColor(`#ff0000`)
       .setTimestamp()
       .setThumbnail(`${user.displayAvatarURL({dynamic: true})}`)
-      .addFields({ name: `Razon`, value: `${razon}` });
+      .addFields({ name: `Razon`, value: `${razon}` }, { name: `Staff`, value: `${interaction.user.tag}`});
 
       await member.ban({ deleteMessageSeconds: 0, reason: razon}).catch(console.error);
 

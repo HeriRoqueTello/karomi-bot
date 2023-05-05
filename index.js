@@ -21,7 +21,7 @@ loadEvents(client);
 client.login(token);
 
 // .then(() => {
-// 	console.log(`Bot ${client.user.tag} se ha iniciado`);
-// 	client.user.setActivity(``)
+//   console.log(`Bot ${client.user.tag} se ha iniciado`);
+//   client.user.setActivity({ type: 2 , name: `/help`})
 // })
 // .catch((err) => console.log(err));

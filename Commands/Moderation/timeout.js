@@ -5,7 +5,7 @@ module.exports = {
    .setName("timeout")
    .setDescription("Timeout a usuario del servidor.")
    .addUserOption((option) => option.setName(`target`).setDescription(`User timeout`).setRequired(true))
-   .addIntegerOption((option) => option.setName(`tiempo`).setDescription(`Tiempo del timeout en minutos`).setRequired(true))
+   .addIntegerOption((option) => option.setName(`tiempo`).setDescription(`Tiempo en minutos`).setRequired(true))
    .addStringOption((option) => option.setName(`razon`).setDescription(`Razon del timeout`))
    .setDefaultMemberPermissions(PermissionFlagsBits.KickMembers),
 
@@ -27,15 +27,17 @@ module.exports = {
     if (user.id === client.user.id) return interaction.reply({ content: `No puedes dar timeout a ${client.user.tag}`, ephemeral: true });
     if (member.roles.highest.position >= interaction.member.roles.highest.position) return interaction.reply({ content: `No puedes hacer timeout a alguien con permisos igual o superior al tuyo`, ephemeral: true});
     if (!member.kickable) return interaction.reply({ content: `No puedo dar timeout a usuarios con mas poder que el mio`, ephemeral: true});
+    if (time < 0) return interaction.reply({ content: `El tiempo no debe ser menor a 0 minutos`, ephemeral: true});
     if (time > 10000) return interaction.reply({ content: `El tiempo no debe exceder los 10000 minutos`, ephemeral: true});
 
     const embed = new EmbedBuilder()
       .setAuthor({ name: `${guild.name}`, iconURL: `${guild.iconURL({dynamic: true}) || "https://media.discordapp.net/attachments/1061470285456478229/1103485521319174264/iconalt.png?width=410&height=616"}` })
-      .setTitle(`${user.tag} tiene timeout en el servidor`)
+      .setTitle(`Timeout para ${user.tag}`)
       .setColor(`#ff0000`)
       .setTimestamp()
       .setThumbnail(`${user.displayAvatarURL({dynamic: true})}`)
-      .addFields({ name: `Razon`, value: `${razon}`, inline: true }, { name: `Tiempo`, value: `${time}`, inline: true});
+      .addFields({ name: `Razon`, value: `${razon}`, inline: true }, { name: `Tiempo`, value: `${time > 1 ? `${time} minutos'` : `${time} minuto`}`, inline: true})
+      .addFields({ name: `Staff`, value: `${interaction.user.tag}`});
 
       await member.timeout(time * 60 * 1000, razon).catch(console.error);
 

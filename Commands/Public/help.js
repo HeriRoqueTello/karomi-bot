@@ -66,18 +66,34 @@ module.exports = {
     const embedUtility = new EmbedBuilder()
       .setTitle(`:round_pushpin: | Utilidad`)
       .setColor(`#248046`)
-      .setFields({
-        name: `/user`,
-        value: `Informacion de un usuario en el servidor`
-      })
+      .setFields(
+        {
+          name: `/user`,
+          value: `Informacion de un usuario en el servidor`
+        },
+        {
+          name: `/server`,
+          value: `Informacion del servidor`
+        },
+      )
       .setFooter({ text: 'Para todos los usuarios', iconURL: `${guild.iconURL({dynamic: true}) || "https://media.discordapp.net/attachments/1061470285456478229/1103485521319174264/iconalt.png?width=410&height=616"}` });
     const embedMod = new EmbedBuilder()
       .setTitle(`:shield: | Moderacion`)
       .setColor(`#248046`)
-      .setFields({
-        name: `/ban`,
-        value: `Dar ban a usuario`
-      })
+      .setFields(
+        {
+          name: `/ban`,
+          value: `Ban a usuario del servidor`
+        },
+        {
+          name: `/kick`,
+          value: `Kick a usuario del servidor`
+        },
+        {
+          name: `/timeout`,
+          value: `Timeout a usuario del servidor`
+        },
+      )
       .setFooter({ text: 'Solo para el staff', iconURL: `${guild.iconURL({dynamic: true}) || "https://media.discordapp.net/attachments/1061470285456478229/1103485521319174264/iconalt.png?width=410&height=616"}` });
     const embedMusic = new EmbedBuilder()
       .setTitle(`:notes: | Musica(disabled)`)
